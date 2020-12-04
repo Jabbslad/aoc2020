@@ -1,3 +1,4 @@
+use crate::util;
 use std::collections::HashSet;
 
 fn two_sum(total: i32, nums: Vec<i32>) -> Result<(i32, i32), String> {
@@ -14,11 +15,7 @@ fn two_sum(total: i32, nums: Vec<i32>) -> Result<(i32, i32), String> {
 }
 
 pub fn main() {
-    let contents = include_str!("one/input");
-    let nums: Vec<i32> = contents
-        .lines()
-        .map(|line| line.parse().expect("err"))
-        .collect();
+    let nums = util::nums();
 
     match two_sum(2020, nums) {
         Ok((x, y)) => println!("{} * {} = {}", x, y, x * y),
